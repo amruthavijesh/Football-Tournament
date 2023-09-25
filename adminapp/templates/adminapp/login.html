@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% include 'adminapp/head.html' %}
+
+<body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" style="border: 1px solid gray; margin-top: 200px;padding: 50px;">
+                <div class="container mt-3">
+                    <a class="navbar-brand" href="#"><h3>FootTour</h3></a>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="row row1">
+                            <div class="col-sm-4">
+                                <label for="">User Name <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter  Name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-4">
+                                <label for="">Password <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="Enter pasword" name="password" required>
+                            </div>
+                        </div>
+                        <div class="row row1" style="float: right;">
+                            <div class="col-sm-12">
+                                <input type="submit" value="Login">
+                            </div>
+                        </div>
+                    </form>
+            </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

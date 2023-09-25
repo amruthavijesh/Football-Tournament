@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include 'tournament/head.html' %}
+<body>
+    {% include 'tournament/navigation.html' %}
+    <div class="container-fluid mt-3">
+        {% if msg %}
+            <h3>{{msg}}</h3>
+            <div style="overflow-x:auto;">
+            <table class="center">
+                <tr>
+                    <th>Team1</th>
+                    <th>Team2</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Venue</th>
+                    <th>Location</th>
+                </tr>
+                {% for sch in schedule %}
+                <tr>
+                    <td>{{sch.Team1.TeamName}}</td>
+                    <td>{{sch.Team2.TeamName}}</td>
+                    <td>{{sch.Match_date}}</td>
+                    <td>{{sch.Match_time}}</td>
+                    <td>{{sch.Venue.VenueName}}</td>
+                    <td>{{sch.Venue.Location}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-sm-3 p-3">
+                <img src="{% static 'assets/images/position.png' %}" class="float-start" alt="Paris" width="100%" height="100%"> 
+            </div>
+            <div class="col-sm-9 p-3">
+                <div class="form-control">
+                    <h5>Register Now</h5>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Team Name <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Team Name" name="teamname" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Contact No <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Contact" name="contact" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Coach <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Coach" name="coach" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Manager <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Manager" name="manager" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Goal Keeper <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Goal Keeper" name="goalkeeper" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <p>Defender</p>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Centre-Back <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Centreback" name="centreback" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Sweeper <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Sweeper" name="sweeper" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Wing-Back <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Wingback" name="wingback" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Full-Back <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Fullback" name="fullback" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <p>Midfielder</p>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Central <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Central Midfielder" name="centralmidfielder" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Attacking <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Attacking Midfielder" name="attackingmidfielder" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Wide <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Wide Midfielder" name="widemidfielder" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <p>Forward</p>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Second Striker <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Second Striker" name="secondstriker" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Centre Forward <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Centre Forward" name="centreforward" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Winger <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Winger" name="winger" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <p>Substitutes</p>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Substitute 1 <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Substitute1" name="substitute1" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Substitute 2 <span style="color: red;">*</span></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Substitute2" name="substitute2" required>
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col-sm-2">
+                                <label for="">Substitute 3</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Substitute3" name="substitute3">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="">Substitute 4</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Substitute4" name="substitute4">
+                            </div>
+                        </div>
+                        <div class="row row1">
+                            <div class="col">
+                                <input type="submit" value="Register">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+      </div>
+    
+    
+    
+    
+    </body>
+</html>

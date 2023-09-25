@@ -1,0 +1,33 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'tournament:index' %}"><h3>FootTour</h3></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'tournament:index' %}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Squad</a>
+                    <ul class="dropdown-menu">
+                        {% for x in team %}
+                        <li><a class="dropdown-item" href="{% url 'tournament:teamdetails' x.id %}">{{x.TeamName}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li> 
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{% url 'tournament:fixturesandgoals'%}" >Fixtures &amp; Goals</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Admin</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'adminapp:login' %}">Login</a></li>
+                    </ul>
+                </li> 
+            </ul>
+        </div>
+    </div>
+</nav>

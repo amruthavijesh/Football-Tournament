@@ -1,0 +1,101 @@
+body{
+    font-family: "Lobster", Sans-serif;
+}
+main {
+  padding: 0;
+}
+header {
+  position: sticky;
+  top:0;
+  background: #212529;
+  color: white;
+  height: 80px;
+}
+a h3{
+    font-family: Copperplate, Papyrus, fantasy;
+    color: lightblue;
+    text-decoration: none;
+}
+.img-txt{
+    text-align: center;
+}
+.bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+.text-container {
+    position: absolute;
+    top: 20px; 
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+h5{
+    text-align: center;
+    font-family: "Lobster", Sans-serif;
+    margin: 20px 0px;
+    font-weight: 600;
+}
+p{
+    font-weight: 600;
+    font-size: 18px;
+}
+.col input{
+    float: right;
+}
+h3{
+    text-align: center;
+    font-family: "Lobster", Sans-serif;
+    margin: 20px 0px;
+    font-weight: 600;
+    color: red;
+}
+.team-data{
+    font-family: Copperplate, Papyrus, fantasy;
+    color: white;
+    font-size: 20px;
+
+}
+.team-head{
+    font-family: Copperplate, Papyrus, fantasy;
+    color: white;
+    font-size: 22px;
+    text-decoration: underline;
+
+}
+hr{
+    color: white;
+    height: 3px;
+    font-weight: 500;
+}
+.text-container .row{
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .bg-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 130vh;
+        position: relative;
+    }
+  }
+.row1{
+    margin-top: 5px !important;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  table.center {
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+  }

@@ -1,0 +1,10 @@
+admin login:
+username: admin
+password:1234
+
+
+requirements
+django
+python
+mysqlclient
+pillow

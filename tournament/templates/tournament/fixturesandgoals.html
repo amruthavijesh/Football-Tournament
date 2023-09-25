@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include 'tournament/head.html' %}
+<body>
+    {% include 'tournament/navigation.html' %}
+    <div class="container-fluid mt-3">
+            <div style="overflow-x:auto;">
+            <table class="center">
+                <tr>
+                    <th>Team1</th>
+                    <th>Team2</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Team1 Score</th>
+                    <th>Team2 Score</th>
+                    <th>Venue</th>
+                    <th>Location</th>
+                </tr>
+                {% for sch in result %}
+                <tr>
+                    <td>{{sch.TeamName1}}</td>
+                    <td>{{sch.TeamName2}}</td>
+                    <td>{{sch.Schedule.Match_date}}</td>
+                    <td>{{sch.Schedule.Match_time}}</td>
+                    <td>{{sch.TeamScore1}}</td>
+                    <td>{{sch.TeamScore2}}</td>
+                    <td>{{sch.Schedule.Venue.VenueName}}</td>
+                    <td>{{sch.Schedule.Venue.Location}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+      </div>
+    
+    
+    
+    
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include 'tournament/head.html' %}
+<body>
+    {% include 'tournament/navigation.html' %}
+    <div class="bg-image" style="background-image: url('{% static 'assets/images/lawn.jpg' %}')">
+        <div class="text-container">
+            <div class="row">
+                <div class="col">
+                    <p class="team-head">{{teamdata.TeamName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="team-data">{{teamdata.Manager}}(manager)</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="team-data">{{teamdata.Coach}}(coach)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <hr>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    
+                <p class="team-data">{{teamdata.Goalkeeper}}(goalkeeper)</p>    
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">     
+                <div class="col-sm-3">
+                    <p class="team-head">Defender</p> 
+                    <p class="team-data">{{teamdata.Centreback}}</p>               
+                    <p class="team-data">{{teamdata.Sweeper}}</p>
+                    <p class="team-data">{{teamdata.Wingback}}</p> 
+                    <p class="team-data">{{teamdata.Fullback}}</p> 
+                </div>
+                <div class="col-sm-3">
+                    <p class="team-head">Midfielder</p>
+                    <p class="team-data">{{teamdata.Central}}</p>
+                    <p class="team-data">{{teamdata.Attacking}}</p>
+                    <p class="team-data">{{teamdata.Wide}}</p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="team-head">Forward</p>
+                    <p class="team-data">{{teamdata.Secondstriker}}</p>
+                    <p class="team-data">{{teamdata.Centreforward}}</p>
+                    <p class="team-data">{{teamdata.Winger}}</p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="team-head">Substitutes</p>
+                    <p class="team-data">{{teamdata.Substitute1}}</p>
+                    <p class="team-data">{{teamdata.Substitute2}}</p>
+                    <p class="team-data">{{teamdata.Substitute3}}</p>
+                    <p class="team-data">{{teamdata.Substitute4}}</p>
+                </div>
+            </div>
+        </div> 
+            </div>
+        </div>
+    </div>
+    
+    
+    </body>
+</html>

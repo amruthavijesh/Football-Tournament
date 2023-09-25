@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include 'tournament/head.html' %}
+<body>
+    {% include 'tournament/navigation.html' %}
+    <div class="bg-image" style="background-image: url('{% static 'assets/images/main-bg.jpg' %}')">
+        <div class="text-container">
+            <a class="img-txt" href="{% url 'tournament:teamregistration' %}"><h3>Register Now!!</h3></a>
+        </div>
+    </div>
+    
+    
+    </body>
+</html>

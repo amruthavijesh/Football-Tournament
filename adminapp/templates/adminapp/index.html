@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% include 'adminapp/head.html' %}
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'tournament:index' %}"><h3>FootTour</h3></a>
+            <div class="dropdown pb-4">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'assets/images/usericon.jpg' %}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col py-3">
+                <div class="container mt-3">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#venue">Add Venue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#dates">Add Dates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#times">Add Time</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#result">Add Result</a>
+                        </li>
+                    </ul>
+            
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="venue" class="container tab-pane active"><br>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Venue Name <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="Enter Venue Name" name="venuename" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Location <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="Enter Location" name="location" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-6">
+                                        <input type="submit" value="Register">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="dates" class="container tab-pane fade"><br>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Start Date <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" class="form-control" placeholder="Enter Start Date" name="startdate" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">End Date <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" class="form-control" placeholder="Enter End Date" name="enddate" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-6">
+                                        <input type="submit" value="Register">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="times" class="container tab-pane fade"><br>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">First Match <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="time" class="form-control" placeholder="Enter Time1" name="firstmatch" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Second Match <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="time" class="form-control" placeholder="Enter Time2" name="secondmatch" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-6">
+                                        <input type="submit" value="Register">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="result" class="container tab-pane fade"><br>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Date <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="matchdate">
+                                            {% for x in schedule %}
+                                            <option value="{{x.Match_date}}">{{x.Match_date}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Time <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="matchtime">
+                                            {% for x in schedule %}
+                                            <option value="{{x.id}}">{{x.Match_time}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Team1 <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="team1name">
+                                            {% for x in schedule %}
+                                            <option value="{{x.Team1.TeamName}}">{{x.Team1.TeamName}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Team2 <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="team2name">
+                                            {% for x in schedule %}
+                                            <option value="{{x.Team2.TeamName}}">{{x.Team2.TeamName}}</option>
+                                            {% endfor %}
+                                        </select>                                    
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Team1 Score<span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="Enter Team1 Score" name="team1score" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-2">
+                                        <label for="">Team2 <span style="color: red;">*</span></label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="Enter Team1 Score" name="team2score" required>
+                                    </div>
+                                </div>
+                                <div class="row row1">
+                                    <div class="col-sm-6">
+                                        <input type="submit" value="Register">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</body>
+
+</html>
